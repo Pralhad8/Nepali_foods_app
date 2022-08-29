@@ -33,12 +33,12 @@ class ProfileLongCard extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
           child: Row(children: [
             image,
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Text(text),

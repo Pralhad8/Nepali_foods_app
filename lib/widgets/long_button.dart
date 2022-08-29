@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 import '../utils/dimensions.dart';
 
 class LongButton extends StatelessWidget {

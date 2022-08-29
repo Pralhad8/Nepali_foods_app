@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery_nepal/widgets/horizontal_text.dart';
 
 import '../widgets/profile_bottom_long_card.dart';
 
@@ -16,8 +15,8 @@ class Profile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding:
-                    EdgeInsets.only(left: 15, top: 20, right: 15, bottom: 5),
+                padding: const EdgeInsets.only(
+                    left: 15, top: 20, right: 15, bottom: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -31,45 +30,49 @@ class Profile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Profile',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SvgPicture.asset('assets/feather_edit.svg')
+                    InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/edit_profile');
+                        },
+                        child: SvgPicture.asset('assets/feather_edit.svg'))
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Center(
+              const Center(
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN7jyUIfCCuO6Z0JO4jnqc-yGblABOGHFB4A&usqp=CAU'),
                   maxRadius: 50,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text('Pralhad Chualagin',
+              const Text('Pralhad Chualagin',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              NormalText(text: 'Pralhadc1@gmail.com'),
-              SizedBox(
+              const NormalText(text: 'Pralhadc1@gmail.com'),
+              const SizedBox(
                 height: 10,
               ),
-              NormalText(text: '9813575860'),
+              const NormalText(text: '9813575860'),
               // ElevatedButton(
               //   onPressed: () {},
               //   child: Text('Edit Profile'),
               // ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
             ],
@@ -115,7 +118,7 @@ class NormalText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontSize: 17),
+      style: const TextStyle(fontSize: 17),
     );
   }
 }

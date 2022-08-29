@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../constant.dart';
 import '../utils/dimensions.dart';
 import '../widgets/long_button.dart';

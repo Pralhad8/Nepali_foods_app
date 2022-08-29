@@ -3,8 +3,8 @@ import 'package:food_delivery_nepal/widgets/bold_text.dart';
 import '../model/food_items_modes.dart';
 import 'food_details.dart';
 
-class Cafe extends StatelessWidget {
-  const Cafe({Key? key}) : super(key: key);
+class Favorite extends StatelessWidget {
+  const Favorite({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,10 @@ class Cafe extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const BoldText(text: 'Cafe Items'),
+            const BoldText(text: 'Favorites'),
             Expanded(
               child: ListView.builder(
-                  itemCount: cafeMenu.length,
+                  itemCount: resturentsMenu.length,
                   itemBuilder: (context, index) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +30,7 @@ class Cafe extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => FoodDetails(
-                                          foods: cafeMenu[index],
+                                          foods: resturentsMenu[index],
                                         )),
                               );
                             },
@@ -48,10 +48,10 @@ class Cafe extends StatelessWidget {
                                         Container(
                                             width: 50,
                                             height: 50,
-                                            child: cafeMenu[index].photo),
+                                            child: resturentsMenu[index].photo),
                                         const SizedBox(width: 20),
                                         Text(
-                                          cafeMenu[index].name.toString(),
+                                          resturentsMenu[index].name.toString(),
                                           style: const TextStyle(
                                             fontSize: 20,
                                           ),
@@ -60,12 +60,12 @@ class Cafe extends StatelessWidget {
                                       ],
                                     ),
                                     Container(
-                                      margin: const EdgeInsets.only(right: 10),
-                                      child: const Text(
-                                        '>',
-                                        style: TextStyle(fontSize: 25),
-                                      ),
-                                    ),
+                                        margin: const EdgeInsets.only(right: 10),
+                                        child: const Icon(
+                                          Icons.favorite,
+                                          size: 22,
+                                          color: Colors.redAccent,
+                                        )),
                                   ],
                                 ),
                               )),

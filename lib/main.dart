@@ -3,9 +3,12 @@ import 'package:food_delivery_nepal/screens/burger_house_items.dart';
 import 'package:food_delivery_nepal/screens/cafe_items.dart';
 import 'package:food_delivery_nepal/screens/kfc_items.dart';
 import 'package:food_delivery_nepal/screens/login.dart';
+import 'package:food_delivery_nepal/screens/notification.dart';
 import 'package:food_delivery_nepal/screens/resturents_items.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'screens/cart.dart';
+import 'screens/edit_profile.dart';
 import 'screens/forgot_password.dart';
 import 'screens/home.dart';
 import 'screens/navigation_bar.dart';
@@ -30,10 +33,13 @@ class MyApp extends StatelessWidget {
         '/forgotPassword': (context) => const ForgotPassword(),
         '/home': (context) => const HomePage(),
         '/profile': (context) => const Profile(),
+        '/edit_profile': (context) => const EditProfile(),
         '/resturents': (context) => const Resturents(),
         '/burger_house': (context) => const BurgerHouse(),
         '/cafe': (context) => const Cafe(),
         '/kfc': (context) => const Kfc(),
+        '/cart': (context) => const Cart(),
+        '/notifications': (context) => const NotificationsAlert(),
         // '/food_details': (context) =>  FoodDetails(foods: foodItems[index].name),
       },
       title: 'Food Delivery App',

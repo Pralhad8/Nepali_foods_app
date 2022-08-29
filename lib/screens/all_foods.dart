@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_nepal/model/food_items_modes.dart';
-
 import 'food_details.dart';
 
 class AllFoods extends StatelessWidget {
@@ -16,7 +15,7 @@ class AllFoods extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     '<',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
@@ -80,15 +79,15 @@ class AllFoods extends StatelessWidget {
                                       children: [
                                         Text(
                                           foodItems[index].name,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 15,
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold),
                                         ),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                         Text(
                                           foodItems[index].price,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 13,
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold),
@@ -107,10 +106,10 @@ class AllFoods extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(foodItems[index].location),
-                                SizedBox(width: 8),
+                                const SizedBox(width: 8),
                                 Row(
                                   children: [
-                                    Icon(Icons.access_time_rounded,
+                                    const Icon(Icons.access_time_rounded,
                                         color: Colors.red, size: 16),
                                     Text(foodItems[index].time),
                                   ],

@@ -13,7 +13,7 @@ class BoldText extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, top: 15, bottom: 10),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),

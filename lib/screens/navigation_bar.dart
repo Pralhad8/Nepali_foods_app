@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_delivery_nepal/screens/cart.dart';
+import 'package:food_delivery_nepal/screens/favorite.dart';
 import 'package:food_delivery_nepal/screens/home.dart';
 import 'package:food_delivery_nepal/screens/profile.dart';
 
@@ -16,10 +18,9 @@ class _BottomNavigationTabBarState extends State<BottomNavigationTabBar> {
   int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
     const HomePage(),
-    Profile(),
-    // RequestBlood(),
-    // Search(),
-    // Profile(),
+    const Profile(),
+    const Favorite(),
+    const Cart(),
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const HomePage(); // Our first view in viewport
@@ -33,35 +34,6 @@ class _BottomNavigationTabBarState extends State<BottomNavigationTabBar> {
           child: currentScreen,
           bucket: bucket,
         ),
-        floatingActionButton: Container(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Positioned(
-                bottom: 45,
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Color(0XFFFF2156),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2,
-                      )),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                    // child: SvgPicture.asset(
-                    //   'assets/blood_group.svg',
-                    //   color: Colors.white,
-                    // ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: Material(
           borderRadius: BorderRadius.circular(30),
           child: InkWell(
@@ -69,7 +41,7 @@ class _BottomNavigationTabBarState extends State<BottomNavigationTabBar> {
               Navigator.pushNamed(context, '/home');
             },
             child: Container(
-              height: 60,
+              height: 50,
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -86,14 +58,10 @@ class _BottomNavigationTabBarState extends State<BottomNavigationTabBar> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       MaterialButton(
-                        minWidth: 40,
                         onPressed: () {
                           setState(() {
                             currentScreen =
@@ -104,140 +72,223 @@ class _BottomNavigationTabBarState extends State<BottomNavigationTabBar> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(Icons.home),
-                            // SvgPicture.asset(
-                            //   'assets/navigator_home.svg',
+                            // Icon(
+                            //   Icons.home,
                             //   color:
-                            //       currentTab == 0 ? Colors.red : Colors.grey,
+                            //       currentTab == 0 ? Colors.green : Colors.black,
                             // ),
-                            SizedBox(
+                            SvgPicture.asset(
+                              'assets/navigator_home.svg',
+                              height: 22,
+                              color: currentTab == 0 ? Colors.red : Colors.grey,
+                            ),
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
                               child: currentTab == 0
-                                  ? CircleAvatar(
-                                      radius: 3,
+                                  ? const CircleAvatar(
+                                      radius: 0,
                                       backgroundColor: Colors.red,
                                     )
-                                  : CircleAvatar(
+                                  : const CircleAvatar(
                                       radius: 0,
                                     ),
                             ),
                           ],
                         ),
                       ),
+                      const SizedBox(width: 15),
                       MaterialButton(
-                        minWidth: 40,
                         onPressed: () {
                           setState(() {
                             currentScreen =
-                                HomePage(); // if user taps on this dashboard tab will be active
+                                const Favorite(); // if user taps on this dashboard tab will be active
                             currentTab = 1;
                           });
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(Icons.search),
+                            Icon(
+                              Icons.favorite_outline,
+                              color: currentTab == 1 ? Colors.red : Colors.grey,
+                            ),
                             // SvgPicture.asset(
                             //   'assets/search.svg',
-                            //   color:
-                            //       currentTab == 1 ? Colors.red : Colors.grey,
+                            //   color: currentTab == 1 ? Colors.red : Colors.grey,
                             // ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
                               child: currentTab == 1
-                                  ? CircleAvatar(
-                                      radius: 15,
-                                      backgroundColor: Colors.red,
-                                    )
-                                  : CircleAvatar(
+                                  ? const CircleAvatar(
                                       radius: 0,
-                                    ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-
-                  // Right Tab bar icons
-
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      MaterialButton(
-                        minWidth: 40,
-                        onPressed: () {
-                          setState(() {
-                            currentScreen =
-                                HomePage(); // if user taps on this home tab will be active
-                            currentTab = 2;
-                          });
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(Icons.notifications),
-                            // SvgPicture.asset(
-                            //   'assets/navigator_line_chart.svg',
-                            //   color:
-                            //       currentTab == 2 ? Colors.red : Colors.grey,
-                            // ),
-                            SizedBox(height: 5),
-                            Container(
-                              child: currentTab == 2
-                                  ? CircleAvatar(
-                                      radius: 3,
                                       backgroundColor: Colors.red,
                                     )
-                                  : CircleAvatar(
+                                  : const CircleAvatar(
                                       radius: 0,
                                     ),
                             ),
                           ],
                         ),
                       ),
+                      const SizedBox(width: 15),
                       MaterialButton(
-                        minWidth: 40,
                         onPressed: () {
                           setState(() {
                             currentScreen =
-                                Profile(); // if user taps on this dashboard tab will be active
+                                const Cart(); // if user taps on this dashboard tab will be active
+                            currentTab = 2;
+                          });
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.card_giftcard,
+                              color: currentTab == 2 ? Colors.red : Colors.grey,
+                            ),
+                            // SvgPicture.asset(
+                            //   'assets/search.svg',
+                            //   color: currentTab == 1 ? Colors.red : Colors.grey,
+                            // ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              child: currentTab == 2
+                                  ? const CircleAvatar(
+                                      radius: 0,
+                                      backgroundColor: Colors.red,
+                                    )
+                                  : const CircleAvatar(
+                                      radius: 0,
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            currentScreen =
+                                const Profile(); // if user taps on this dashboard tab will be active
                             currentTab = 3;
                           });
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(Icons.person),
-
+                            Icon(
+                              Icons.person_add_alt_1_outlined,
+                              color: currentTab == 3 ? Colors.red : Colors.grey,
+                            ),
                             // SvgPicture.asset(
-                            //   'assets/navigator_user.svg',
-                            //   color:
-                            //       currentTab == 3 ? Colors.red : Colors.grey,
+                            //   'assets/search.svg',
+                            //   color: currentTab == 1 ? Colors.red : Colors.grey,
                             // ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
-                              child: currentTab == 3
-                                  ? CircleAvatar(
-                                      radius: 3,
+                              child: currentTab == 1
+                                  ? const CircleAvatar(
+                                      radius: 0,
                                       backgroundColor: Colors.red,
                                     )
-                                  : CircleAvatar(
+                                  : const CircleAvatar(
                                       radius: 0,
                                     ),
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
+
+                  // Right Tab bar icons
+
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: <Widget>[
+                  //     MaterialButton(
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           currentScreen =
+                  //               HomePage(); // if user taps on this home tab will be active
+                  //           currentTab = 2;
+                  //         });
+                  //       },
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         children: <Widget>[
+                  //           Icon(
+                  //             Icons.notification_important_outlined,
+                  //             size: 25,
+                  //             color: currentTab == 2 ? Colors.red : Colors.grey,
+                  //           ),
+                  //           // SvgPicture.asset(
+                  //           //   'assets/navigator_line_chart.svg',
+                  //           //   color:
+                  //           //       currentTab == 2 ? Colors.red : Colors.grey,
+                  //           // ),
+                  //           SizedBox(height: 5),
+                  //           Container(
+                  //             child: currentTab == 2
+                  //                 ? CircleAvatar(
+                  //                     radius: 0,
+                  //                     backgroundColor: Colors.red,
+                  //                   )
+                  //                 : CircleAvatar(
+                  //                     radius: 0,
+                  //                   ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //     MaterialButton(
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           currentScreen =
+                  //               Profile(); // if user taps on this dashboard tab will be active
+                  //           currentTab = 3;
+                  //         });
+                  //       },
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: <Widget>[
+                  //           Icon(
+                  //             Icons.person_add_alt_outlined,
+                  //             color: currentTab == 3 ? Colors.red : Colors.grey,
+                  //           ),
+
+                  //           // SvgPicture.asset(
+                  //           //   'assets/navigator_user.svg',
+                  //           //   color:
+                  //           //       currentTab == 3 ? Colors.red : Colors.grey,
+                  //           // ),
+                  //           SizedBox(
+                  //             height: 5,
+                  //           ),
+                  //           Container(
+                  //             child: currentTab == 3
+                  //                 ? CircleAvatar(
+                  //                     radius: 0,
+                  //                     backgroundColor: Colors.red,
+                  //                   )
+                  //                 : CircleAvatar(
+                  //                     radius: 0,
+                  //                   ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
                 ],
               ),
             ),

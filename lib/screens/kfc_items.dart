@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:food_delivery_nepal/widgets/bold_text.dart';
-
 import '../model/food_items_modes.dart';
 import 'food_details.dart';
 
@@ -16,7 +14,7 @@ class Kfc extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            BoldText(text: 'Kfc Items'),
+            const BoldText(text: 'Kfc Items'),
             Expanded(
               child: ListView.builder(
                   itemCount: kfcMenu.length,
@@ -51,10 +49,10 @@ class Kfc extends StatelessWidget {
                                             width: 50,
                                             height: 50,
                                             child: kfcMenu[index].photo),
-                                        SizedBox(width: 20),
+                                        const SizedBox(width: 20),
                                         Text(
                                           kfcMenu[index].name.toString(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 20,
                                           ),
                                           textAlign: TextAlign.center,
@@ -62,8 +60,8 @@ class Kfc extends StatelessWidget {
                                       ],
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(right: 10),
-                                      child: Text(
+                                      margin: const EdgeInsets.only(right: 10),
+                                      child: const Text(
                                         '>',
                                         style: TextStyle(fontSize: 25),
                                       ),

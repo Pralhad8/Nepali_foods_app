@@ -70,15 +70,15 @@ class SmallContainer extends StatelessWidget {
                                   children: [
                                     Text(
                                       foodItems[index].name,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 15,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(width: 10),
+                                    const SizedBox(width: 10),
                                     Text(
                                       foodItems[index].price,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 15,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
@@ -98,10 +98,10 @@ class SmallContainer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(foodItems[index].location),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Row(
                             children: [
-                              Icon(Icons.access_time_rounded,
+                              const Icon(Icons.access_time_rounded,
                                   color: Colors.red, size: 16),
                               Text(foodItems[index].time),
                             ],

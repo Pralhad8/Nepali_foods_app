@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_nepal/model/food_items_modes.dart';
 
-import '../widgets/bold_text.dart';
 
 class FoodDetails extends StatelessWidget {
   final FoodItemsModel foods;
@@ -19,17 +18,24 @@ class FoodDetails extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 30, top: 15),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           '<',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 35),
                         ),
+                        Container(
+                          margin: const EdgeInsets.only(right: 25),
+                          child: const Icon(
+                            Icons.shopping_bag_outlined,
+                            size: 25,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -40,7 +46,7 @@ class FoodDetails extends StatelessWidget {
                           child: Flexible(child: Text(foods.companyName!)),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Container(
@@ -54,12 +60,12 @@ class FoodDetails extends StatelessWidget {
                   ),
                   Text(
                     foods.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.teal,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
@@ -70,38 +76,120 @@ class FoodDetails extends StatelessWidget {
                     ),
                     child: foods.photo,
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 10),
                   Text(
                     foods.price,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.red,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.black12),
+                        child: const Icon(Icons.favorite_border_outlined),
+                      ),
+                      const SizedBox(width: 15),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.black12),
+                        child: const Icon(Icons.share),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Text(
-                      'This is mo:mo which has jhol and is it very testay you will get 10 pices of it.',
-                      style: TextStyle(fontSize: 16),
+                      foods.description!,
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
-                  SizedBox(height: 170),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text('Quantity'),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 35,
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                ),
+                                color: Colors.blue),
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(width: 0.5),
+                          Container(
+                            width: 40,
+                            height: 35,
+                            color: Colors.blue,
+                            child: const Text(
+                              '2',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          const SizedBox(width: 0.5),
+                          Container(
+                            width: 40,
+                            height: 35,
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(15),
+                                  bottomRight: Radius.circular(15),
+                                ),
+                                color: Colors.blue),
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 100),
                   Container(
-                      width: 350,
+                      width: 300,
                       height: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.teal,
                       ),
-                      child: Center(
-                        child: Text(
-                          'Add to cart',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Add to cart',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       )),
                 ],
               );

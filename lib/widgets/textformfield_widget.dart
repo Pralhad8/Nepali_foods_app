@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../utils/dimensions.dart';
 
 
@@ -53,9 +51,9 @@ class TextFormFieldWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.5),
             ),
             prefixIcon: Container(
-                margin: EdgeInsets.only(right: 12, left: 5),
-                decoration: BoxDecoration(
-                  border: Border(right: BorderSide(color: Color(0XFFD6D6D6))),
+                margin: const EdgeInsets.only(right: 12, left: 5),
+                decoration: const BoxDecoration(
+                  border: Border(right: const BorderSide(color: Color(0XFFD6D6D6))),
                 ),
                 child: icon),
             hintText: hintText,
